@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatoriais</title>
+ <script>
+        function calcularFatorial(numero) {
+            if (numero === 0 || numero === 1) {
+                return `1 (não há cálculo necessário)`;
+            }
+
+            let fatorial = 1;
+            let calculo = `${numero} * `;
+
+            for (let i = 2; i <= numero; i++) {
+                fatorial *= i;
+                if (i === numero) {
+                    calculo += `${i}`;
+                } else {
+                    calculo += `${i} * `;
+                }
+            }
+
+            return `${calculo} = ${fatorial}`;
+        }
+
+        function calcularFatoriaisDe1A10() {
+            for (let i = 1; i <= 10; i++) {
+                let fatorial = calcularFatorial(i);
+                console.log(`O fatorial de ${i} é: ${fatorial}`);
+            }
+        }
+
+        function verificarFatorial() {
+            let inputNumero = document.getElementById("inputNumero");
+            let numero = parseInt(inputNumero.value);
+
+            let fatorial = calcularFatorial(numero);
+            console.log(`O fatorial de ${numero} é: ${fatorial}`);
+        }
+    </script>
+</head>
+<body>
+    <input type="number" id="inputNumero">
+    <button onclick="verificarFatorial()">Verificar Fatorial</button>
+    <button onclick="calcularFatoriaisDe1A10()">Calcular Fatoriais de 1 a 10</button>
+</body>
+</html>
